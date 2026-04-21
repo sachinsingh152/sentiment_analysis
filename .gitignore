@@ -1,0 +1,55 @@
+# Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Models and Large Data (Exclude these from GitHub)
+*.pth
+*.safetensors
+my_distilbert_model/
+Sentiment/
+*.zip
+*.csv
+*.json
+!tokenizer_config.json
+!config.json
+!templates/*.html
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Flask/App Logs
+*.log
+instance/
+.webassets-cache

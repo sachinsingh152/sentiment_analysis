@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentix | Advanced Sentiment Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SENTIX</h1>
+            <p>BiLSTM-Attention Sentiment Analysis Engine</p>
+        </header>
+
+        <section class="analyzer-section">
+            <div class="glass-card">
+                <div class="input-group">
+                    <textarea id="tweetInput" placeholder="Enter your tweet here..."></textarea>
+                    <button id="analyzeBtn">
+                        <span class="btn-text">Analyze Sentiment</span>
+                        <div class="loader" id="loader"></div>
+                    </button>
+                </div>
+
+                <div id="result" class="results-container">
+                    <div class="result-card">
+                        <span class="result-label">Sentiment</span>
+                        <div id="sentimentBadge" class="sentiment-badge"></div>
+                        <div class="prob-text" id="probText">Confidence: 0%</div>
+                        <div class="probability-bar">
+                            <div id="probFill" class="probability-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <span class="result-label">Account Type</span>
+                        <div id="botBadge" class="sentiment-badge"></div>
+                        <div class="prob-text" id="botProbText">Confidence: 0%</div>
+                        <div class="probability-bar">
+                            <div id="botProbFill" class="probability-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <p id="cleanedText" style="font-size: 0.9rem; color: var(--text-dim); margin-top: 1rem; text-align: center;"></p>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <header style="margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem;">Model Dashboard</h2>
+                <p>Data visualization and model performance insights</p>
+            </header>
+            
+            <div class="dashboard-grid">
+                <div class="glass-card dashboard-card reveal">
+                    <h3>Label Distribution</h3>
+                    <img src="/images/label_distribution.png" alt="Label Distribution">
+                </div>
+                <div class="glass-card dashboard-card reveal" style="animation-delay: 0.2s;">
+                    <h3>Top Words in Corpus</h3>
+                    <img src="/images/top_words.png" alt="Top Words">
+                </div>
+                <div class="glass-card dashboard-card reveal" style="animation-delay: 0.4s;">
+                    <h3>Tweet Activity</h3>
+                    <img src="/images/tweet_activity.png" alt="Tweet Activity">
+                </div>
+                <div class="glass-card dashboard-card reveal" style="animation-delay: 0.6s;">
+                    <h3>Bigram Analysis</h3>
+                    <img src="/images/bigram_analysis.png" alt="Bigram Analysis">
+                </div>
+                <div class="glass-card dashboard-card reveal" style="animation-delay: 0.8s;">
+                    <h3>Profile Features</h3>
+                    <img src="/images/profile_features.png" alt="Profile Features Analysis">
+                </div>
+                <div class="glass-card dashboard-card reveal" style="animation-delay: 1.0s;">
+                    <h3>Domain Distribution</h3>
+                    <img src="/images/domain_distribution.png" alt="Domain Distribution">
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+            <span class="modal-close">&times;</span>
+            <img class="modal-content" id="fullImage">
+            <div id="caption"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
